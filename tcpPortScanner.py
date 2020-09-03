@@ -1,7 +1,11 @@
-import socket
+# import libraries
+import socket # need socket library to create socket
+
+#declare variables
 boolean = True
 i = 0
 
+# get a hostname with input of IPv4 address
 def getHostName(hostIP):
     try:
         print(socket.gethostbyaddr(hostIP))
@@ -9,6 +13,7 @@ def getHostName(hostIP):
         print("-" * 80)
         print("Cannot resolve %s" % hostIP)
 
+# get an IPv4 address with input of hostname
 def getIP(hostname):
     try:
         print(socket.gethostbyname(hostname))
@@ -16,6 +21,7 @@ def getIP(hostname):
         print("-" * 80)
         print("Cannot resolve %s" % hostname)
 
+# port scanner function using TCP
 def portScanner(ports):
     print("-" * 80)
     for i in range(len(ports)):
@@ -25,6 +31,8 @@ def portScanner(ports):
          print("Port %s is open" % (ports[i]))
         i = i + 1
 
+
+# TCP port scan on a specific given port
 def portScannerSpecific(sp_port):
     print("-" * 80)
     if s.connect_ex((host, sp_port)):
@@ -32,6 +40,8 @@ def portScannerSpecific(sp_port):
     else:
         print("Port %s is open" % (sp_port))
 
+        
+# interactive menu with all functions
 while(boolean == True):
     print("-" * 80)
     print("1. Get hostname from IP Address")
